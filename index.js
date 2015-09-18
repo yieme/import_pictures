@@ -7,11 +7,18 @@ var sleep    = process.env.SLEEP || 5000000; // = 5 seconds
 var urls     = require(src);
 var numeric  = process.env.NUMERIC_ORDER || false;
 var download = new Download({ mode: mode });
+var counter  = 0;
 
 
 //try {
 //	fs.mkdirSync(dst);
 //} catch(e) {}
+
+function rename(name) {
+	counter++;
+	name.basename = counter;
+	return name;
+}
 
 function done(err, files) {
 	if (err) throw err;
@@ -20,14 +27,9 @@ function done(err, files) {
 
 for(var i=1; i <= urls.length; i++) {
 	var url = urls[i-1];
-	if (numeric) {
-		var ext = url.split('.');
-		var dstfil = i + '.' + ext[ext.length-1];
-		download.get(url).rename(dstfil);
-	} else {
-		download.get(url);
-	}
+	download.get(url);
 	console.log(i + ' of ' + urls.length + ': ' + url);
 }
 
+if (numeric) download.rename(rename);
 download.dest(dst).run(done);
