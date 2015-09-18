@@ -13,5 +13,10 @@ Defaults:
 - `MODE`: `755`, valid file mode
 - `NUMERIC_ORDER`: if defined then files are saved in numeric order, ex: `1.jpg`...
 
+## files.json
+Outputs `files.json` which contains:
+- an array of filenames if NUMERIC_ORDER isn't defined
+- a mapping of filenames to number if NUMERIC_ORDER is defined
+
 ## License
 MIT
