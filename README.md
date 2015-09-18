@@ -1,4 +1,4 @@
-# import_pictures
+# Import Pictures
 For an array of URL's download the pictures locally
 
 ## Usage
