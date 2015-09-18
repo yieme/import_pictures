@@ -6,6 +6,7 @@ var mode     = process.env.MODE  || '755';
 var sleep    = process.env.SLEEP || 5000000; // = 5 seconds
 var urls     = require(src);
 var download = new Download({ mode: mode });
+var numeric  = process.env.NUMERIC_ORDER || false;
 
 
 //try {
@@ -17,9 +18,15 @@ function done(err, files) {
 	console.log(files.length + ' downloaded');
 }
 
-for(var i=0; i < urls.length; i++) {
-	var url = urls[i];
-	download.get(url);
+for(var i=1; i <= urls.length; i++) {
+	var url = urls[i-1];
+	if (numeric) {
+		var ext = url.split('.');
+		var dstfil = dst + '/' + i + '.' + ext[ext.length-1];
+		download.get(url, dstfil);
+	} else {
+		download.get(url);
+	}
 	console.log(i + ' of ' + urls.length + ': ' + url);
 }
 
