@@ -1,0 +1,24 @@
+{
+  "name": "import_pictures",
+  "version": "1.0.0",
+  "description": "For an array of URL's download the pictures locally",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "engines": {
+    "node": ">=0.10.39"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://yieme@github.com/yieme/import_pictures.git"
+  },
+  "author": "yieme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yieme/import_pictures/issues"
+  },
+  "homepage": "https://github.com/yieme/import_pictures",
+  "dependencies": {}
+}
