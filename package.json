@@ -1,6 +1,6 @@
 {
   "name": "import_pictures",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "For an array of URL's download the pictures locally",
   "main": "index.js",
   "scripts": {
